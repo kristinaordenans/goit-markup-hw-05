@@ -5,6 +5,7 @@
     --background-gray: #F5F4FA;
     --title: #212121;
     --main-text: #757575;
+    --transition: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 
 body {
@@ -90,12 +91,14 @@ img {
     align-items: center;
 }
 
+
 .list .item:not(:last-child) {
     margin-right: 50px;
 }
 
 .site-nav .link {
     display: block;
+    position: relative;
     padding-top: 32px;
     padding-bottom: 32px;
 
@@ -106,9 +109,26 @@ img {
     text-decoration: none;
     color: var(--title);
 }
+.link.current::after {
+    display:inline-block;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 4px;
+    content: "";
+    background-color: var(--accent);
+    border-radius: 2px;
+}
 
 .site-nav .link:hover,
 .site-nav .link:focus {
+    color: var(--accent);
+    transition: var(--transition);
+
+}
+
+.site-nav .current {
     color: var(--accent);
 }
 
@@ -126,7 +146,7 @@ img {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--main-text);
-    fill: #757575;
+    fill: var(--main-text);
     text-align: center;
     gap: 10px;
 }
@@ -145,8 +165,9 @@ img {
 
 .contact .link:hover,
 .contact .link:focus {
-    color: #2196F3;
-    fill: #2196F3;
+    color: var(--accent);
+    fill: var(--accent);
+    transition: var(--transition);
 }
 
 /* MAIN COMPANY */
@@ -161,11 +182,14 @@ img {
     margin-left: auto;
     margin-right: auto;
     max-width: 1600px;
-    height: 600px;
+    max-height: 600px;
     background-image: linear-gradient(to right,
                       rgba(47, 48, 58, 0.4),
                       rgba(47, 48, 58, 0.4)),
     url(../images/background-hero.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .hero-title {
@@ -205,6 +229,7 @@ img {
 .button:hover,
 .button:focus {
     background-color: rgba(24, 140, 232, 1);
+    transition: var(--transition);
 }
 
 .section-title {
@@ -244,7 +269,7 @@ img {
 
 .item-plus {
     display: flex;
-    background-color: #F5F4FA;
+    background-color: var(--background-gray);
     border-radius: 4px;
     height: 120px;
     width: 270px;
@@ -265,6 +290,28 @@ img {
     padding-bottom: 94px;
 }
 
+.thumb {
+    position: relative;
+    background-color: #fff;
+}
+
+.thumb > .plus-lable {
+    display: block;
+    position: absolute;
+    padding-top: 26px;
+    width: 370px;
+    height: 70px;
+    top:224px;
+
+    line-height: 16px;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: rgba(47, 48, 58, 0.8);
+}
+
 
 /* TEAM */
 
@@ -281,7 +328,9 @@ img {
     text-align: center;
     background-color: #ffffff;
     border-radius: 0px 0px 4px 4px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+     0px 1px 1px rgba(0, 0, 0, 0.14),
+     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .team-name {
@@ -330,6 +379,7 @@ img {
 .social-link:focus {
     fill: #ffffff;
     background-color: var(--accent);
+    transition: var(--transition);
 }
 
 
@@ -354,8 +404,9 @@ img {
 
 .clients-link:hover,
 .clients-link:focus {
-    fill: #2196F3;
-    border: 1px solid #2196F3;
+    fill: var(--accent);
+    border: 1px solid var(--accent);
+    transition: var(--transition);
 }
 
 
@@ -377,7 +428,10 @@ img {
 .button.filter:focus {
     background-color: var(--accent);
     color: #ffffff;
-    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+     0px 1px 2px rgba(0, 0, 0, 0.08),
+     0px 2px 2px rgba(0, 0, 0, 0.12);
+    transition: var(--transition);
 }
 
 .portfolio-btn {
@@ -410,7 +464,10 @@ img {
 
 .galery-item:hover,
 .galery-item:focus {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+     0px 4px 4px rgba(0, 0, 0, 0.06),
+     1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition: var(--transition);
 }
 
 .item-text {
@@ -436,6 +493,39 @@ img {
 
 .galery-item:nth-child(n+7){
     margin-bottom: 0;
+}
+
+.galery-box {
+    position: relative;
+    width: 370px;
+    height: 294px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.galery-item:hover .galery-overlay {
+    transform: translateY(0);
+
+}
+
+.galery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 150, 243, 0.9);
+    transform: translatey(100%);
+    transition: transform 250ms ease;
+}
+
+.galery-overlay > p {
+    line-height: 28px;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0.03em;
+    padding: 62px 23px;
 }
 
 
@@ -471,6 +561,7 @@ img {
 .address-link:hover,
 .address-link:focus {
     color: var(--accent);
+    transition: var(--transition);
 }
 
 .item-address {
@@ -516,8 +607,10 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+
     height: 44px;
     width: 44px;
+
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     fill: #ffffff;
@@ -526,4 +619,71 @@ img {
 .social-link-footer:hover,
 .social-link-footer:focus {
     background-color: var(--accent);
+    transition: var(--transition);
 }
+
+/* MODAL */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.2);
+    transition: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 528px;
+    min-height: 581px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
+                0px 1px 1px rgba(0, 0, 0, 0.14), 
+                0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.button-close {
+    height: 18px;
+    width: 18px;
+}
+
+.button-modal {
+    display: flex;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.button-modal:hover,
+.button-modal:focus {
+    background-color: rgba(33, 150, 243, 10%);
+    border-color: rgba(33, 150, 243, 40%);
+    transform: scale(1.15);
+    transition-duration: 250ms;
+}
+
+
+
+
+
