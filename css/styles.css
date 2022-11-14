@@ -108,6 +108,7 @@ img {
     letter-spacing: 0.02em;
     text-decoration: none;
     color: var(--title);
+    transition: var(--transition);
 }
 .link.current::after {
     display:inline-block;
@@ -124,8 +125,6 @@ img {
 .site-nav .link:hover,
 .site-nav .link:focus {
     color: var(--accent);
-    transition: var(--transition);
-
 }
 
 .site-nav .current {
@@ -149,6 +148,7 @@ img {
     fill: var(--main-text);
     text-align: center;
     gap: 10px;
+    transition: var(--transition);
 }
 
 .item .link {
@@ -167,7 +167,6 @@ img {
 .contact .link:focus {
     color: var(--accent);
     fill: var(--accent);
-    transition: var(--transition);
 }
 
 /* MAIN COMPANY */
@@ -218,6 +217,7 @@ img {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: var(--transition);
 }
 
 .hero .button {
@@ -229,7 +229,6 @@ img {
 .button:hover,
 .button:focus {
     background-color: rgba(24, 140, 232, 1);
-    transition: var(--transition);
 }
 
 .section-title {
@@ -373,13 +372,13 @@ img {
     border-radius: 50%;
     background-color: #ffffff;
     fill: #AFB1B8;
+    transition: var(--transition);
 }
 
 .social-link:hover,
 .social-link:focus {
     fill: #ffffff;
     background-color: var(--accent);
-    transition: var(--transition);
 }
 
 
@@ -400,13 +399,13 @@ img {
     justify-content: center;
     width: 170px;
     height: 92px;
+    transition: var(--transition);
 }
 
 .clients-link:hover,
 .clients-link:focus {
     fill: var(--accent);
     border: 1px solid var(--accent);
-    transition: var(--transition);
 }
 
 
@@ -422,6 +421,7 @@ img {
     letter-spacing: 0.03em;
     background-color: var(--background-gray);
     color: #000000;
+    transition: var(--transition);
 }
 
 .button.filter:hover,
@@ -431,7 +431,6 @@ img {
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
      0px 1px 2px rgba(0, 0, 0, 0.08),
      0px 2px 2px rgba(0, 0, 0, 0.12);
-    transition: var(--transition);
 }
 
 .portfolio-btn {
@@ -467,7 +466,7 @@ img {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
      0px 4px 4px rgba(0, 0, 0, 0.06),
      1px 4px 6px rgba(0, 0, 0, 0.16);
-    transition: var(--transition);
+    
 }
 
 .item-text {
@@ -489,6 +488,7 @@ img {
 
 .galery-item {
     border-bottom: 1px solid #EEEEEE;
+    transition: var(--transition);
 }
 
 .galery-item:nth-child(n+7){
@@ -614,12 +614,12 @@ img {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     fill: #ffffff;
+    transition: var(--transition);
 }
 
 .social-link-footer:hover,
 .social-link-footer:focus {
     background-color: var(--accent);
-    transition: var(--transition);
 }
 
 /* MODAL */
@@ -674,6 +674,7 @@ img {
     background-color: #ffffff;
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
+
 }
 .button-modal:hover,
 .button-modal:focus {
